@@ -1,7 +1,7 @@
 [package]
 name = "cobin"
 version = "0.1.0"
-description = "Minimalistic bindings for Metal and related Cocoa bindings."
+description = "Minimalistic bindings for Metal and related Cocoa frameworks."
 authors = ["Rasmus Rønn Nielsen <rasmus@polylab.dk>"]
 repository = "https://github.com/raroni/cobin"
 edition = "2018"
