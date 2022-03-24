@@ -48,6 +48,18 @@ impl MTLRenderCommandEncoder {
     msg_send![self, setFragmentTexture:texture atIndex:index]
   }
 
+  pub unsafe fn set_fragment_acceleration_structure_at_buffer_index(&self, structure: *mut MTLAccelerationStructure, index: NSUInteger) {
+    msg_send![self, setFragmentAccelerationStructure:structure atBufferIndex:index]
+  }
+
+  pub unsafe fn set_vertex_acceleration_structure_at_buffer_index(&self, structure: *mut MTLAccelerationStructure, index: NSUInteger) {
+    msg_send![self, setVertexAccelerationStructure:structure atBufferIndex:index]
+  }
+
+  pub unsafe fn use_resource_usage<T: MTLResourceProtocol>(&self, resource: *mut T, usage: MTLResourceUsage, stages: MTLRenderStages) {
+    msg_send![self, useResource:resource usage:usage stages:stages]
+  }
+
   pub unsafe fn draw_primitives_vertex_start_vertex_count(&self, primitive_type: MTLPrimitiveType, vertex_start: NSUInteger, vertex_count: NSUInteger) {
     msg_send![self, drawPrimitives:primitive_type vertexStart:vertex_start vertexCount:vertex_count]
   }

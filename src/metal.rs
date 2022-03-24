@@ -158,6 +158,14 @@ bitflags! {
 }
 
 bitflags! {
+  pub struct MTLRenderStages: NSUInteger {
+    const VERTEX   = 1 << 0;
+    const FRAGMENT = 1 << 1;
+    const TILE     = 1 << 2;
+  }
+}
+
+bitflags! {
   pub struct MTLPipelineOption: NSUInteger {
     const NONE                       = 0;
     const ARGUMENT_INFO              = 1 << 0;
