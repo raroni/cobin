@@ -40,7 +40,7 @@ impl MTLRenderCommandEncoder {
     msg_send![self, setFragmentBuffer:buffer offset:offset atIndex:index]
   }
 
-  pub unsafe fn set_fragment_bytes_offset_at_index(&self, bytes: *const std::ffi::c_void, length: NSUInteger, index: NSUInteger) {
+  pub unsafe fn set_fragment_bytes_length_at_index(&self, bytes: *const std::ffi::c_void, length: NSUInteger, index: NSUInteger) {
     msg_send![self, setFragmentBytes:bytes length:length atIndex:index]
   }
 
