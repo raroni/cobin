@@ -6,9 +6,12 @@ mod ns_error;
 mod ns_run_loop_mode;
 mod ns_bundle;
 
-use crate::core_graphics::{
-  CGRect,
-  CGPoint
+use crate::{
+  core_graphics::{
+    CGRect,
+    CGPoint
+  },
+  runtime::NSUInteger
 };
 
 #[link(name = "Foundation", kind = "framework")]
@@ -18,6 +21,21 @@ extern {
 
 pub type NSRect = CGRect;
 pub type NSPoint = CGPoint;
+
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct NSRange {
+  pub location: NSUInteger,
+  pub length: NSUInteger
+}
+
+impl NSRange {
+  pub fn new(location: NSUInteger, length: NSUInteger) -> Self {
+    Self {
+      location, length
+    }
+  }
+}
 
 #[repr(usize)]
 #[derive(Clone, Copy)]
