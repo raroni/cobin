@@ -7,6 +7,7 @@ extern crate bitflags;
 mod strong;
 mod obj;
 mod auto_release;
+pub mod kernel;
 pub mod core_graphics;
 pub mod runtime;
 pub mod foundation;
@@ -14,6 +15,7 @@ pub mod core_animation;
 pub mod app_kit;
 pub mod metal;
 pub mod util;
+pub mod dispatch;
 
 pub type Selector = objc::runtime::Sel;
 pub type Strong<T> = strong::Strong<T>;
