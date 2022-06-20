@@ -422,6 +422,18 @@ pub enum MTLGPUFamily {
   MAC_CATALYST2 = 4002
 }
 
+pub struct MTLCommandBufferHandler {
+  pub block: block::RcBlock<(*mut MTLCommandBuffer, ), ()>
+}
+
+impl<'a> MTLCommandBufferHandler {
+  pub fn new<F: Fn(*mut MTLCommandBuffer) -> () + 'static>(b: F) -> Self {
+    Self {
+      block: block::ConcreteBlock::new(b).copy()
+    }
+  }
+}
+
 pub use mtl_device::MTLDevice;
 pub use mtl_command_queue::MTLCommandQueue;
 pub use mtl_buffer::MTLBuffer;

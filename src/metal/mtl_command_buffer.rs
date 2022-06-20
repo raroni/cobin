@@ -1,7 +1,8 @@
 use crate::{
   obj::Object,
   PrivateMarker,
-  metal::*
+  metal::*,
+  foundation::NSString
 };
 
 pub struct MTLCommandBuffer(PrivateMarker);
@@ -30,12 +31,19 @@ impl MTLCommandBuffer {
     msg_send![self, waitUntilCompleted]
   }
 
-  pub unsafe fn add_completed_handler<F>(&self, block: F) where F: Fn(*mut MTLCommandBuffer) -> () + 'static {
-    let block = block::ConcreteBlock::new(block).copy();
-    msg_send![self, addCompletedHandler: block]
+  pub unsafe fn add_completed_handler(&self, block: MTLCommandBufferHandler) {
+    msg_send![self, addCompletedHandler:block]
+  }
+
+  pub unsafe fn set_label(&self, label: *mut NSString) {
+    msg_send![self, setLabel:label]
+  }
+
+  pub unsafe fn label(&self) -> *mut NSString {
+    msg_send![self, label]
   }
 
   pub unsafe fn present_drawable(&self, drawable: *mut MTLDrawable) {
-    msg_send![self, presentDrawable: drawable]
+    msg_send![self, presentDrawable:drawable]
   }
 }
