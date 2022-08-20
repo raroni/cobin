@@ -89,6 +89,18 @@ pub enum MTLCullMode {
 }
 
 #[repr(u64)]
+#[allow(non_camel_case_types)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+pub enum MTLCommandBufferStatus {
+    NotEnqueued = 0,
+    Enqueued = 1,
+    Committed = 2,
+    Scheduled = 3,
+    Completed = 4,
+    Error = 5,
+}
+
+#[repr(u64)]
 #[derive(Copy, Clone)]
 pub enum MTLCompareFunction {
   Never = 0,

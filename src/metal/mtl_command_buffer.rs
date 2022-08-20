@@ -27,6 +27,10 @@ impl MTLCommandBuffer {
     msg_send![self, commit]
   }
 
+  pub unsafe fn status(&self) -> MTLCommandBufferStatus {
+    msg_send![self, status]
+  }
+
   pub unsafe fn wait_until_completed(&self) {
     msg_send![self, waitUntilCompleted]
   }
