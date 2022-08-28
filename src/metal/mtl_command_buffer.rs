@@ -19,6 +19,10 @@ impl MTLCommandBuffer {
     msg_send![self, computeCommandEncoder]
   }
 
+  pub unsafe fn blit_command_encoder(&self) -> *mut MTLBlitCommandEncoder {
+    msg_send![self, blitCommandEncoder]
+  }
+
   pub unsafe fn acceleration_structure_command_encoder(&self) -> *mut MTLAccelerationStructureCommandEncoder {
     msg_send![self, accelerationStructureCommandEncoder]
   }
