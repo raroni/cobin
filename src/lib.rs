@@ -7,6 +7,7 @@ extern crate bitflags;
 mod strong;
 mod obj;
 mod auto_release;
+pub mod core_foundation;
 pub mod kernel;
 pub mod core_graphics;
 pub mod runtime;

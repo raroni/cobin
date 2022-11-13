@@ -1,7 +1,7 @@
 use crate::{
   metal,
   obj::Object,
-  core_graphics::CGSize,
+  core_graphics::*,
   core_animation::*,
   PrivateMarker,
   runtime::NSObjectBase
@@ -29,6 +29,10 @@ impl CAMetalLayer {
 
   pub unsafe fn set_pixel_format(&self, pixel_format: metal::MTLPixelFormat) {
     msg_send![self, setPixelFormat: pixel_format]
+  }
+
+  pub unsafe fn set_color_space(&self, space: CGColorSpaceRef) {
+    msg_send![self, setColorspace:space]
   }
 
   pub unsafe fn set_presents_with_transaction(&self, transaction: bool) {
