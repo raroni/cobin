@@ -32,7 +32,7 @@ impl MTLRenderCommandEncoder {
     msg_send![self, setVertexBuffer:buffer offset:offset atIndex:index]
   }
 
-  pub unsafe fn set_vertex_bytes_offset_at_index(&self, bytes: *const std::ffi::c_void, length: NSUInteger, index: NSUInteger) {
+  pub unsafe fn set_vertex_bytes_length_at_index(&self, bytes: *const std::ffi::c_void, length: NSUInteger, index: NSUInteger) {
     msg_send![self, setVertexBytes:bytes length:length atIndex:index]
   }
 
