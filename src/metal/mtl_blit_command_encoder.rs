@@ -33,4 +33,8 @@ impl MTLBlitCommandEncoder {
   ) {
     msg_send![self, fillBuffer:buffer range:range value:value]
   }
+
+  pub unsafe fn copy_from_texture_to_texture(&self, source: *mut MTLTexture, destination: *mut MTLTexture) {
+    msg_send![self, copyFromTexture:source toTexture:destination]
+  }
 }
