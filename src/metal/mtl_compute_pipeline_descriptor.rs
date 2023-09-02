@@ -23,4 +23,8 @@ impl MTLComputePipelineDescriptor {
   pub unsafe fn set_compute_function(&self, func: *mut MTLFunction) {
     msg_send![self, setComputeFunction:func]
   }
+
+  pub unsafe fn set_thread_group_size_is_multiple_of_thread_execution_width(&self, v: bool) {
+    msg_send![self, setThreadGroupSizeIsMultipleOfThreadExecutionWidth:v]
+  }
 }
