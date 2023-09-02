@@ -20,6 +20,16 @@ impl<T> Strong<T> {
     self.ptr
   }
 
+  pub unsafe fn as_ref(&self) -> &T {
+    debug_assert!(!self.is_null());
+    &(*self.ptr)
+  }
+
+  pub unsafe fn as_mut_ref(&self) -> &mut T {
+    debug_assert!(!self.is_null());
+    &mut (*self.ptr)
+  }
+
   pub fn is_null(&self) -> bool {
     self.as_ptr() == std::ptr::null()
   }
