@@ -6,7 +6,7 @@ mod ns_window;
 mod ns_view;
 
 #[link(name = "AppKit", kind = "framework")]
-extern {}
+extern "C" {}
 
 #[repr(isize)]
 #[derive(Clone, Copy, Debug, PartialEq)]

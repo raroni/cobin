@@ -38,7 +38,7 @@ pub struct CGColorSpace(PrivateMarker);
 pub type CGColorSpaceRef = *const CGColorSpace;
 
 #[link(name = "CoreGraphics", kind = "framework")]
-extern {
+extern "C" {
     pub static kCGColorSpaceSRGB: CFStringRef;
     pub static kCGColorSpaceAdobeRGB1998: CFStringRef;
     pub static kCGColorSpaceGenericGray: CFStringRef;

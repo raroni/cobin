@@ -15,7 +15,7 @@ use crate::{
 };
 
 #[link(name = "Foundation", kind = "framework")]
-extern {
+extern "C" {
   pub static NSDefaultRunLoopMode: *mut NSRunLoopMode;
 }
 
