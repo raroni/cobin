@@ -8,6 +8,11 @@ pub trait MTLAccelerationStructureGeometryDescriptorBase: Object {
   unsafe fn set_intersection_function_table_offset(&mut self, offset: NSUInteger) {
     msg_send![self, setIntersectionFunctionTableOffset:offset]
   }
+
+  unsafe fn set_opaque(&mut self, v: bool) {
+    let opaque: objc::runtime::BOOL = v.into();
+    msg_send![self, setOpaque:opaque]
+  }
 }
 
 pub struct MTLAccelerationStructureGeometryDescriptor(PrivateMarker);

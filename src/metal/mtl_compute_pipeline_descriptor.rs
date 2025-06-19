@@ -27,4 +27,8 @@ impl MTLComputePipelineDescriptor {
   pub unsafe fn set_thread_group_size_is_multiple_of_thread_execution_width(&self, v: bool) {
     msg_send![self, setThreadGroupSizeIsMultipleOfThreadExecutionWidth:v]
   }
+
+  pub unsafe fn set_max_total_threads_per_threadgroup(&self, v: NSUInteger) {
+    msg_send![self, setMaxTotalThreadsPerThreadGroup:v]
+  }
 }
