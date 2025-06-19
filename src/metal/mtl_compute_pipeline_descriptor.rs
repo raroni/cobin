@@ -29,6 +29,6 @@ impl MTLComputePipelineDescriptor {
   }
 
   pub unsafe fn set_max_total_threads_per_threadgroup(&self, v: NSUInteger) {
-    msg_send![self, setMaxTotalThreadsPerThreadGroup:v]
+    msg_send![self, setMaxTotalThreadsPerThreadgroup:v]
   }
 }
