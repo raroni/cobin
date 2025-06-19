@@ -11,7 +11,7 @@ keywords = ["metal", "bindings", "cocoa", "macos"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-objc = "0.2.7"
+objc = { git = "https://github.com/SSheldon/rust-objc" } # To address the warning mentioned in https://github.com/SSheldon/rust-objc/issues/125. Apparently, this was fixed but never published to crates.io.
 cty = "0.2.1"
 bitflags = "1.2.1"
 block = "0.1.6"
